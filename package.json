@@ -1,0 +1,25 @@
+{
+  "name": "slb",
+  "version": "1.0.0",
+  "description": "Does the crappy JavaScript tooling dance so you don't have to",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "standard",
+    "webpack",
+    "build",
+    "tool",
+    "cli",
+    "babel",
+    "flow",
+    "hmr"
+  ],
+  "author": {
+    "name": "Oliver Caldwell",
+    "email": "olliec87@gmail.com",
+    "url": "http://oli.me.uk/"
+  }
+  "license": "Unlicense"
+}
