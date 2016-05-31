@@ -14,6 +14,20 @@ Does the crappy JavaScript tooling dance so you don't have to.
 | Testing       | [ava][]       |
 | Types         | [flow][]      |
 
+## Features
+
+ * Linting with good defaults
+ * Optional type checking
+ * Production builds
+ * Development web servers with hot module reloading
+ * Modern syntax (JSX + async/await for example)
+ * Testing
+
+### Potential additions
+
+ * Test coverage
+ * Performance benchmarks
+
 ## Installation
 
 You can install `slb` globally with `npm install -g slb` or as a dev dependency local to your project. If you do the latter (which I recommend!) you can then set up a `Makefile` or build script that uses the local executable.
