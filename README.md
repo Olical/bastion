@@ -27,7 +27,6 @@ The name is from **S**hia **L**a**B**eouf's "Just Do It" motivational video, als
  * [x] Sourcemaps
  * [x] Development web server
  * [x] Hot module reloading (+ `react-hot-loader`)
- * [ ] Run stand-alone scripts with babel / webpack
  * [ ] Opinionated linting
  * [ ] Optional type checking
  * [ ] Testing
@@ -47,7 +46,17 @@ npm install --save-dev slb
 
 ## Usage
 
-...
+### Bundle
+
+```bash
+slb bundle ./src/index.js ./dist/bundle.js
+```
+
+### Bundle, serve and watch with HMR
+
+```bash
+slb bundle --dev --base ./dist ./src/index.js ./dist/bundle.js
+```
 
 ## Author
 
