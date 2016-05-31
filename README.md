@@ -3,7 +3,8 @@
 Does the crappy JavaScript tooling dance so you don't have to.
 
 > Just Do It!
-> - [Shia LaBeouf][justdoit]
+>
+>  — [Shia LaBeouf][justdoit]
 
 | What you get  | Package       |
 | ------------- | ------------- |
