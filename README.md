@@ -14,6 +14,12 @@ Does the crappy JavaScript tooling dance so you don't have to.
 | Testing       | [ava][]       |
 | Types         | [flow][]      |
 
+## Rationale
+
+I got bored of all the things you have to set up to make JavaScript at least passable as a language so I thought I'd put a single tool together that orchestrated it all. I'm following in standard's footsteps and assuming defaults for everything for the sake of time and sanity. This will fit my workflow well, it may not fit yours. Maybe adjust things slightly or just adapt and get used to it.o
+
+The name is from **S**hia **L**a**B**eouf's "Just Do It" motivational video. It's what I think of when I'm setting up webpack + babel for the third time that day.
+
 ## Features
 
  * Linting with good defaults
@@ -27,6 +33,7 @@ Does the crappy JavaScript tooling dance so you don't have to.
 
  * Test coverage
  * Performance benchmarks
+ * Seamless Elm and / or ClojureSript build integration
 
 ## Installation
 
