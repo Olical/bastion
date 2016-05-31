@@ -87,6 +87,7 @@ export default function build (source, destination, options) {
     compiler.run((err, stats) => {
       if (err) {
         console.error(err)
+        process.exit(1)
       } else {
         console.info(stats.toString({
           colors: true,
