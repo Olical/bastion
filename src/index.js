@@ -1,7 +1,5 @@
-import build from './commands/build'
-import serve from './commands/serve'
+import bundle from './commands/bundle'
 
 export default {
-  build,
-  serve
+  bundle
 }

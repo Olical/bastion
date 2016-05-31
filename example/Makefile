@@ -1,4 +1,4 @@
-.PHONY: bootstrap build serve serve-dist
+.PHONY: bootstrap bundle bundle-dev serve
 
 slb=../bin/slb-dev
 bin=./node_modules/.bin
@@ -6,11 +6,11 @@ bin=./node_modules/.bin
 bootstrap:
 	npm install
 
-build:
-	$(slb) build ./src/index.js dist/bundle.js
+bundle:
+	$(slb) bundle ./src/index.js ./dist/bundle.js
+
+bundle-dev:
+	$(slb) bundle --dev --base ./dist ./src/index.js ./dist/bundle.js
 
 serve:
-	$(slb) serve ./src/index.js dist/bundle.js
-
-serve-dist:
 	$(bin)/http-server dist

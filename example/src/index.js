@@ -1,11 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import Counter from './Counter'
 
-const HelloMessage = React.createClass({
-  render: function () {
-    return <div>Hello {this.props.name}</div>
+class HelloMessage extends React.Component {
+  render () {
+    return <div>Hello {this.props.name}! <Counter /></div>
   }
-})
+}
 
 ReactDOM.render(<HelloMessage name='Oliver' />, document.querySelector('#react-mount'))
 
