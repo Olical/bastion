@@ -2,9 +2,11 @@
   "name": "slb",
   "version": "1.0.0",
   "description": "Does the crappy JavaScript tooling dance so you don't have to",
-  "main": "src/index.js",
+  "main": "lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "babel src/ --out-dir lib/",
+    "prepublish": "npm run build"
   },
   "keywords": [
     "standard",
@@ -20,6 +22,12 @@
     "name": "Oliver Caldwell",
     "email": "olliec87@gmail.com",
     "url": "http://oli.me.uk/"
+  },
+  "license": "Unlicense",
+  "dependencies": {
+    "babel-cli": "^6.9.0",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-register": "^6.9.0",
+    "commander": "^2.9.0"
   }
-  "license": "Unlicense"
 }
