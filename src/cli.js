@@ -10,6 +10,11 @@ program
   .action(slb.bundle)
 
 program
+  .command('check <source>')
+  .description('lint, type check and test the source files')
+  .action(slb.check)
+
+program
   .action(() => program.outputHelp())
 
 program

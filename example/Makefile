@@ -1,4 +1,4 @@
-.PHONY: bootstrap bundle bundle-dev serve
+.PHONY: bootstrap bundle bundle-dev check serve
 
 slb=../bin/slb-dev
 bin=./node_modules/.bin
@@ -11,6 +11,9 @@ bundle:
 
 bundle-dev:
 	$(slb) bundle --dev --base ./dist ./src/index.js ./dist/bundle.js
+
+check:
+	$(slb) check "./src/**.js"
 
 serve:
 	$(bin)/http-server dist

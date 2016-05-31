@@ -11,8 +11,8 @@ class HelloMessage extends React.Component {
 ReactDOM.render(<HelloMessage name='Oliver' />, document.querySelector('#react-mount'))
 
 function slowThing () {
-  return new Promise((res) => {
-    setTimeout(() => res('Form async/await with <3'), 1000)
+  return new Promise((resolve) => {
+    setTimeout(() => resolve('Form async/await with <3'), 1000)
   })
 }
 
