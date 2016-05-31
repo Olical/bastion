@@ -22,18 +22,19 @@ The name is from **S**hia **L**a**B**eouf's "Just Do It" motivational video, als
 
 ## Features
 
- * Linting with good defaults
- * Optional type checking
- * Production builds
- * Development web servers with hot module reloading
- * Modern syntax (JSX + async/await for example)
- * Testing
-
-### Potential additions
-
- * Test coverage
- * Performance benchmarks
- * Seamless Elm and / or ClojureSript build integration
+ * [x] Production builds
+ * [x] Modern syntax support
+ * [x] Sourcemaps
+ * [x] Development web server
+ * [x] Hot module reloading (+ `react-hot-loader`)
+ * [ ] Run stand-alone scripts with babel / webpack
+ * [ ] Opinionated linting
+ * [ ] Optional type checking
+ * [ ] Testing
+ * [ ] Test coverage
+ * [ ] Performance benchmarks
+ * [ ] Seamless Elm and / or ClojureSript build integration
+ * [ ] SCSS and other assorted webpack loaders
 
 ## Installation
 
