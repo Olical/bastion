@@ -45,6 +45,8 @@ npm install --save-dev bastion
 ### Bundle
 
 ```bash
+# The ./ for your source file is important.
+# It follows normal node modules rules.
 bastion bundle ./src/index.js ./dist/bundle.js
 ```
 
