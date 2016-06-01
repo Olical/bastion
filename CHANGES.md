@@ -1,5 +1,11 @@
 # bastion changes
 
+## v1.3.0
+
+ * Fix bundle outside of the bastion directory, kind of essential.
+ * More readme things, small though.
+ * Compile bastion and lint bastion with bastion during tests.
+
 ## v1.2.0
 
  * Lots of readme improvements.
