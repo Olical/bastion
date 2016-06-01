@@ -1,8 +1,8 @@
 # bastion [![npm version](https://badge.fury.io/js/bastion.svg)](https://badge.fury.io/js/bastion)
 
-![bastion](./bastion.jpg)
+Combines a modern JavaScript toolchain into a single program so you can stop worrying about configuration and just get to work on your application. This means you can get back to playing [Overwatch][] as soon as possible!
 
-Does the crappy JavaScript tooling dance so you don't have to. Now you have more time to go and play Overwatch!
+![bastion](https://raw.githubusercontent.com/Olical/bastion/master/bastion.jpg)
 
 | What you get  | Package       |
 | ------------- | ------------- |
@@ -14,7 +14,7 @@ Does the crappy JavaScript tooling dance so you don't have to. Now you have more
 
 ## Rationale
 
-I got bored of all the things you have to set up to make JavaScript at least passable as a language so I thought I'd put a single tool together that orchestrated it all. I'm following in standard's footsteps and assuming defaults for everything for the sake of time and sanity. This will fit my workflow well, it may not fit yours but it solves bikeshedding, just like standard.
+I got bored of all the things you have to set up to make JavaScript bearable so I thought I'd put a single tool together that orchestrated it all. I'm following in [standard][]'s footsteps and assuming defaults for everything for the sake of time and sanity. This will fit my workflow well, it may not fit yours but it prevents bikeshedding, just like standard.
 
 ## Features
 
@@ -43,7 +43,7 @@ npm install --save-dev bastion
 ./node_modules/.bin/bastion --help
 ```
 
-## Usage
+## Examples
 
 ### Bundle
 
@@ -55,6 +55,7 @@ bastion bundle ./src/index.js ./dist/bundle.js
 
 ```bash
 bastion bundle --dev --base ./dist ./src/index.js ./dist/bundle.js
+open http://localhost:8080/
 ```
 
 ### Lint
@@ -86,3 +87,4 @@ Do what you want. Learn as much as you can. Unlicense more software.
 [unlicense]: http://unlicense.org/
 [author-site]: http://oli.me.uk/
 [author-twitter]: https://twitter.com/OliverCaldwell
+[overwatch]: https://playoverwatch.com/
