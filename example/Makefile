@@ -13,7 +13,7 @@ bundle-dev:
 	$(bastion) bundle --dev --base ./dist ./src/index.js ./dist/bundle.js
 
 check:
-	$(bastion) check "./src/**.js"
+	$(bastion) check "./src/**/*.js"
 
 serve:
 	$(bin)/http-server dist
