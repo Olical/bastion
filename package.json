@@ -7,7 +7,7 @@
     "bastion": "./bin/bastion"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "standard",
     "build": "babel src/ --out-dir lib/",
     "prepublish": "npm run build"
   },
