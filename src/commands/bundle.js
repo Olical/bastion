@@ -1,8 +1,21 @@
 import path from 'path'
 import webpack from 'webpack'
 import WebpackDevServer from 'webpack-dev-server'
+import {map} from 'lodash'
+
+const localModules = path.resolve(path.join(__dirname, '../../node_modules'))
+
+function prefixModule (prefix) {
+  return (name) => {
+    return path.join(localModules, `${prefix}-${name}`)
+  }
+}
 
 export default function build (entry, bundle, options) {
+  const resolvers = {
+    fallback: localModules
+  }
+
   const entries = {
     all: [
       'babel-polyfill',
@@ -44,14 +57,14 @@ export default function build (entry, bundle, options) {
         exclude: /node_modules/,
         loader: 'babel',
         query: {
-          plugins: [
+          plugins: map([
             'transform-runtime'
-          ],
-          presets: [
+          ], prefixModule('babel-plugin')),
+          presets: map([
             'es2015',
             'stage-0',
             'react'
-          ]
+          ], prefixModule('babel-preset'))
         }
       }
     ],
@@ -74,7 +87,9 @@ export default function build (entry, bundle, options) {
     },
     module: {
       loaders: options.dev ? loaders.development.concat(loaders.all) : loaders.all
-    }
+    },
+    resolve: resolvers,
+    resolveLoader: resolvers
   })
 
   if (options.dev) {
