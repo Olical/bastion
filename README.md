@@ -1,4 +1,4 @@
-# bastion
+# bastion (WIP - this is not done yet!)
 
 Does the crappy JavaScript tooling dance so you don't have to.
 
