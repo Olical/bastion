@@ -7,7 +7,7 @@
     "bastion": "./bin/bastion"
   },
   "scripts": {
-    "test": "standard",
+    "test": "standard && npm run build && ./bin/bastion lint",
     "build": "babel src/ --out-dir lib/",
     "prepublish": "npm run build"
   },
