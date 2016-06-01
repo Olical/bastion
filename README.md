@@ -55,6 +55,12 @@ bastion bundle ./src/index.js ./dist/bundle.js
 bastion bundle --dev --base ./dist ./src/index.js ./dist/bundle.js
 ```
 
+### Lint
+
+```bash
+bastion check "./src/\*\*.js"
+```
+
 ## Author
 
 [Oliver Caldwell][author-site] ([@OliverCaldwell][author-twitter])
