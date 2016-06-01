@@ -2,14 +2,14 @@
 
 Combines a modern JavaScript toolchain into a single program so you can stop worrying about configuration and just get to work on your application. This means you can get back to playing [Overwatch][] as soon as possible!
 
-![bastion](https://raw.githubusercontent.com/Olical/bastion/master/bastion.jpg)
-
-It combines the following technologies into one easy to use package.
+Bastion combines the following technologies into one easy to use package:
 
  * [babel][]
  * [webpack][]
  * [standard][]
  * [ava][]
+
+![bastion](https://raw.githubusercontent.com/Olical/bastion/master/bastion.jpg)
 
 ## Rationale
 
