@@ -12,7 +12,7 @@ ReactDOM.render(<HelloMessage name='Oliver' />, document.querySelector('#react-m
 
 function slowThing () {
   return new Promise((resolve) => {
-    setTimeout(() => resolve('Form async/await with <3'), 1000)
+    setTimeout(() => resolve('Form async/await with <3'), 1000);
   })
 }
 
