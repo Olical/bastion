@@ -1,19 +1,19 @@
 .PHONY: bootstrap bundle bundle-dev check serve
 
-slb=../bin/slb-dev
+bastion=../bin/bastion-dev
 bin=./node_modules/.bin
 
 bootstrap:
 	npm install
 
 bundle:
-	$(slb) bundle ./src/index.js ./dist/bundle.js
+	$(bastion) bundle ./src/index.js ./dist/bundle.js
 
 bundle-dev:
-	$(slb) bundle --dev --base ./dist ./src/index.js ./dist/bundle.js
+	$(bastion) bundle --dev --base ./dist ./src/index.js ./dist/bundle.js
 
 check:
-	$(slb) check "./src/**.js"
+	$(bastion) check "./src/**.js"
 
 serve:
 	$(bin)/http-server dist

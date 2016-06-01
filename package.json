@@ -1,10 +1,10 @@
 {
-  "name": "slb",
+  "name": "bastion",
   "version": "1.0.0",
   "description": "Does the crappy JavaScript tooling dance so you don't have to",
   "main": "lib/index.js",
   "bin": {
-    "slb": "./bin/slb"
+    "bastion": "./bin/bastion"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

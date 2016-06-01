@@ -1,10 +1,6 @@
-# slb
+# bastion
 
 Does the crappy JavaScript tooling dance so you don't have to.
-
-> Just Do It!
->
->  — [Shia LaBeouf][justdoit]
 
 | What you get  | Package       |
 | ------------- | ------------- |
@@ -16,9 +12,7 @@ Does the crappy JavaScript tooling dance so you don't have to.
 
 ## Rationale
 
-I got bored of all the things you have to set up to make JavaScript at least passable as a language so I thought I'd put a single tool together that orchestrated it all. I'm following in standard's footsteps and assuming defaults for everything for the sake of time and sanity. This will fit my workflow well, it may not fit yours. Maybe adjust things slightly or just adapt and get used to it.o
-
-The name is from **S**hia **L**a**B**eouf's "Just Do It" motivational video, also it's unique and short. It's what I think of when I'm setting up webpack + babel for the third time that day.
+I got bored of all the things you have to set up to make JavaScript at least passable as a language so I thought I'd put a single tool together that orchestrated it all. I'm following in standard's footsteps and assuming defaults for everything for the sake of time and sanity. This will fit my workflow well, it may not fit yours but it solves bikeshedding, just like standard.
 
 ## Features
 
@@ -32,16 +26,16 @@ The name is from **S**hia **L**a**B**eouf's "Just Do It" motivational video, als
  * [ ] Testing
  * [ ] Test coverage
  * [ ] Performance benchmarks
- * [ ] Seamless Elm and / or ClojureSript build integration
- * [ ] SCSS and other assorted webpack loaders
+ * [ ] Elm loader
+ * [ ] CSS loader
 
 ## Installation
 
-You can install `slb` globally with `npm install -g slb` or as a dev dependency local to your project. If you do the latter (which I recommend!) you can then set up a `Makefile` or build script that uses the local executable.
+You can install `bastion` globally with `npm install -g bastion` or as a dev dependency local to your project. If you do the latter (which I recommend!) you can then set up a `Makefile` or build script that uses the local executable.
 
 ```bash
-npm install --save-dev slb
-./node_modules/.bin/slb --help
+npm install --save-dev bastion
+./node_modules/.bin/bastion --help
 ```
 
 ## Usage
@@ -49,13 +43,13 @@ npm install --save-dev slb
 ### Bundle
 
 ```bash
-slb bundle ./src/index.js ./dist/bundle.js
+bastion bundle ./src/index.js ./dist/bundle.js
 ```
 
 ### Bundle, serve and watch with HMR
 
 ```bash
-slb bundle --dev --base ./dist ./src/index.js ./dist/bundle.js
+bastion bundle --dev --base ./dist ./src/index.js ./dist/bundle.js
 ```
 
 ## Author
