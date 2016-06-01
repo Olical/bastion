@@ -1,6 +1,8 @@
-# bastion (WIP - this is not done yet!)
+# bastion
 
-Does the crappy JavaScript tooling dance so you don't have to.
+![bastion](./bastion.jpg)
+
+Does the crappy JavaScript tooling dance so you don't have to. Now you have more time to go and play Overwatch!
 
 | What you get  | Package       |
 | ------------- | ------------- |
