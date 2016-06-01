@@ -1,4 +1,4 @@
-# bastion
+# bastion [![npm version](https://badge.fury.io/js/bastion.svg)](https://badge.fury.io/js/bastion)
 
 ![bastion](./bastion.jpg)
 
