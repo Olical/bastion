@@ -4,13 +4,12 @@ Combines a modern JavaScript toolchain into a single program so you can stop wor
 
 ![bastion](https://raw.githubusercontent.com/Olical/bastion/master/bastion.jpg)
 
-| What you get  | Package       |
-| ------------- | ------------- |
-| Builds        | [webpack][]   |
-| Linting       | [standard][]  |
-| Syntax        | [babel][]     |
-| Testing       | [ava][]       |
-| Types         | [flow][]      |
+It combines the following technologies into one easy to use package.
+
+ * [babel][]
+ * [webpack][]
+ * [standard][]
+ * [ava][]
 
 ## Rationale
 
@@ -22,17 +21,15 @@ I got bored of all the things you have to set up to make JavaScript bearable so 
  * [x] Modern syntax support
  * [x] Sourcemaps
  * [x] Development web server
- * [x] Hot module reloading (+ `react-hot-loader`)
+ * [x] Hot module reloading
  * [x] Opinionated linting
- * [ ] Optional type checking
  * [ ] Testing
- * [ ] Test coverage
- * [ ] Performance benchmarks
+ * [ ] Configurable (including webpack loaders)
  * [ ] Build node scripts with babel
  * [ ] Run node scripts with babel
- * [ ] Elm loader
- * [ ] CSS loader
- * [ ] Configurable
+ * [ ] Test coverage
+ * [ ] Gradual typing
+ * [ ] Performance benchmarks
 
 ## Installation
 
@@ -83,8 +80,8 @@ Do what you want. Learn as much as you can. Unlicense more software.
 [standard]: http://standardjs.com/index.html
 [babel]: https://babeljs.io/
 [ava]: https://github.com/avajs/ava
-[flow]: http://flowtype.org/
 [unlicense]: http://unlicense.org/
 [author-site]: http://oli.me.uk/
 [author-twitter]: https://twitter.com/OliverCaldwell
 [overwatch]: https://playoverwatch.com/
+[react-hot-loader]: https://github.com/gaearon/react-hot-loader
