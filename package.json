@@ -4,7 +4,8 @@
   "description": "Combines a modern JavaScript toolchain into a single program so you can stop worrying about configuration and just get to work on your application",
   "main": "lib/index.js",
   "bin": {
-    "bastion": "./bin/bastion"
+    "bastion": "./bin/bastion",
+    "bastion-dev": "./bin/bastion-dev"
   },
   "scripts": {
     "test": "standard && npm run build && ./bin/bastion lint",
@@ -41,6 +42,7 @@
     "babel-runtime": "^6.9.2",
     "commander": "^2.9.0",
     "lodash": "^4.13.1",
+    "react": "^15.1.0",
     "react-hot-loader": "^1.3.0",
     "standard": "^7.1.1",
     "webpack": "^1.13.1",
