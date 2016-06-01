@@ -1,6 +1,6 @@
 {
   "name": "bastion",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Does the crappy JavaScript tooling dance so you don't have to",
   "main": "lib/index.js",
   "bin": {
