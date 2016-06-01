@@ -3,8 +3,8 @@ import pkg from '../package.json'
 import bastion from './index'
 
 program
-  .command('bundle <source> <destination>')
-  .description('bundles the given source file (and the dependencies) into the destination file')
+  .command('bundle <entry> <bundle>')
+  .description('bundles the given entry file (and the dependencies) into the bundle file')
   .option('-d, --dev', 'start the HMR dev server')
   .option('-b, --base <dir>', 'directory to host the dev server from')
   .action(bastion.bundle)

@@ -2,11 +2,11 @@ import path from 'path'
 import webpack from 'webpack'
 import WebpackDevServer from 'webpack-dev-server'
 
-export default function build (source, destination, options) {
+export default function build (entry, bundle, options) {
   const entries = {
     all: [
       'babel-polyfill',
-      source
+      entry
     ],
     development: [
       'webpack-dev-server/client?http://localhost:8080/',
@@ -69,8 +69,8 @@ export default function build (source, destination, options) {
     plugins: options.dev ? plugins.development : plugins.default,
     devtool: 'source-map',
     output: {
-      path: path.dirname(path.resolve(destination)),
-      filename: path.basename(destination)
+      path: path.dirname(path.resolve(bundle)),
+      filename: path.basename(bundle)
     },
     module: {
       loaders: options.dev ? loaders.development.concat(loaders.all) : loaders.all
