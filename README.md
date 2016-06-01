@@ -26,8 +26,11 @@ I got bored of all the things you have to set up to make JavaScript at least pas
  * [ ] Testing
  * [ ] Test coverage
  * [ ] Performance benchmarks
+ * [ ] Build node scripts with babel
+ * [ ] Run node scripts with babel
  * [ ] Elm loader
  * [ ] CSS loader
+ * [ ] Configurable
 
 ## Installation
 
