@@ -1,18 +1,20 @@
 import program from 'commander'
 import pkg from '../package.json'
-import bastion from './index'
+
+import bundle from './commands/bundle'
+import lint from './commands/lint'
 
 program
   .command('bundle <entry> <bundle>')
   .description('bundles the given entry file (and the dependencies) into the bundle file')
   .option('-d, --dev', 'start the HMR dev server')
   .option('-b, --base <dir>', 'directory to host the dev server from')
-  .action(bastion.bundle)
+  .action(bundle)
 
 program
-  .command('check <source>')
-  .description('lint, type check and test the source files')
-  .action(bastion.check)
+  .command('lint [sources...]')
+  .description('lint the given source globs, defaults to all files in the project')
+  .action(lint)
 
 program
   .action(() => program.outputHelp())

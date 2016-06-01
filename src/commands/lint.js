@@ -6,9 +6,9 @@ import {
   isEmpty
 } from 'lodash'
 
-export default async function check (source) {
+export default async function lint (source) {
   try {
-    const lintResults = flatMap((await lint(source)).results, (file) => {
+    const lintResults = flatMap((await runStandard(source)).results, (file) => {
       return map(file.messages, (error) => {
         const path = file.filePath
         const {line, column, message} = error
@@ -19,6 +19,7 @@ export default async function check (source) {
 
     if (!isEmpty(lintResults)) {
       console.log(join(lintResults, '\n'))
+      process.exit(1)
     }
   } catch (e) {
     console.error(e)
@@ -26,7 +27,7 @@ export default async function check (source) {
   }
 }
 
-function lint (source) {
+function runStandard (source) {
   const lintConfig = {
     parser: 'babel-eslint'
   }

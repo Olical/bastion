@@ -58,7 +58,9 @@ open http://localhost:8080/
 ### Lint
 
 ```bash
-bastion check "./src/\*\*/\*.js"
+bastion lint
+bastion lint src/SomeFile.js
+bastion lint "src/**/*.js" "test/OtherFile-*.js"
 ```
 
 ## Author
