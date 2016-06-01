@@ -21,7 +21,7 @@ I got bored of all the things you have to set up to make JavaScript at least pas
  * [x] Sourcemaps
  * [x] Development web server
  * [x] Hot module reloading (+ `react-hot-loader`)
- * [ ] Opinionated linting
+ * [x] Opinionated linting
  * [ ] Optional type checking
  * [ ] Testing
  * [ ] Test coverage
