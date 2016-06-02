@@ -1,19 +1,12 @@
 import path from 'path'
 import webpack from 'webpack'
 import WebpackDevServer from 'webpack-dev-server'
-import {map} from 'lodash'
-
-const localModules = path.resolve(path.join(__dirname, '../../node_modules'))
-
-function prefixModule (prefix) {
-  return (name) => {
-    return path.join(localModules, `${prefix}-${name}`)
-  }
-}
+import configPassthrough from '../configPassthrough'
+import babelConfig from '../babelConfig'
 
 export default function build (entry, bundle, options) {
   const resolvers = {
-    fallback: localModules
+    fallback: path.resolve(path.join(__dirname, '../../node_modules'))
   }
 
   const entries = {
@@ -56,16 +49,7 @@ export default function build (entry, bundle, options) {
         test: /\.js$/,
         exclude: /node_modules/,
         loader: 'babel',
-        query: {
-          plugins: map([
-            'transform-runtime'
-          ], prefixModule('babel-plugin')),
-          presets: map([
-            'es2015',
-            'stage-0',
-            'react'
-          ], prefixModule('babel-preset'))
-        }
+        query: babelConfig()
       }
     ],
     development: [
@@ -77,7 +61,7 @@ export default function build (entry, bundle, options) {
     ]
   }
 
-  const compiler = webpack({
+  const bundleConfig = configPassthrough('webpack', {
     entry: options.dev ? entries.development.concat(entries.all) : entries.all,
     plugins: options.dev ? plugins.development : plugins.default,
     devtool: 'source-map',
@@ -91,6 +75,8 @@ export default function build (entry, bundle, options) {
     resolve: resolvers,
     resolveLoader: resolvers
   })
+
+  const compiler = webpack(bundleConfig)
 
   if (options.dev) {
     const server = new WebpackDevServer(compiler, {

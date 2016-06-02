@@ -5,6 +5,7 @@ import {
   join,
   isEmpty
 } from 'lodash'
+import configPassthrough from '../configPassthrough'
 
 export default async function lint (source) {
   try {
@@ -28,9 +29,9 @@ export default async function lint (source) {
 }
 
 function runStandard (source) {
-  const lintConfig = {
+  const lintConfig = configPassthrough('standard', {
     parser: 'babel-eslint'
-  }
+  })
 
   return new Promise((resolve, reject) => {
     standard.lintFiles(source, lintConfig, (err, response) => {

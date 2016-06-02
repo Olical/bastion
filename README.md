@@ -23,8 +23,8 @@ I got bored of all the things you have to set up to make JavaScript bearable so 
  * [x] Development web server
  * [x] Hot module reloading
  * [x] Opinionated linting
+ * [x] Configurable
  * [ ] Testing
- * [ ] Configurable (including webpack loaders)
  * [ ] Build node scripts with babel
  * [ ] Run node scripts with babel
  * [ ] Test coverage
@@ -38,6 +38,36 @@ You can install `bastion` globally with `npm install -g bastion` or as a dev dep
 ```bash
 npm install --save-dev bastion
 ./node_modules/.bin/bastion --help
+```
+
+## Configuration
+
+Everything should work out of the box, that's the idea. If you do find yourself needing to tweak configuration however you can create a `bastion.conf.js` file in the directory that you're going to be executing bastion from.
+
+> Note: This may walk up the directory tree in the future to find configuration in parent directories.
+
+To configure individual components (the ones listed at the top of this repository) simply export a function from this file (using any ES6+ code you want, it's parsed with bastion's babel!) with the same name. It will be given the config, you can return your modified version.
+
+```javascript
+export function webpack (config) {
+  console.log('webpack config', config)
+  return config
+}
+
+export function standard (config) {
+  console.log('standard config', config)
+  return config
+}
+
+export function babel (config) {
+  console.log('babel config', config)
+  return config
+}
+
+export function ava (config) {
+  console.log('ava config', config)
+  return config
+}
 ```
 
 ## Examples
