@@ -1,5 +1,10 @@
 # bastion changes
 
+## v1.4.0
+
+ * Readme improvements.
+ * Added configuration support for the current three modules.
+
 ## v1.3.1
 
  * Fix dev server in a non-react project, I will make react stuff config or flag based later.
