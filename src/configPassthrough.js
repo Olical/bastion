@@ -19,6 +19,10 @@ export default function configPassthrough (name, config) {
 }
 
 function fileExists (path) {
-  const stat = fs.statSync(path)
-  return stat.isFile()
+  try {
+    fs.accessSync(path, fs.F_OK)
+    return true
+  } catch (e) {
+    return false
+  }
 }
