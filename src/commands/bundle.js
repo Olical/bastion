@@ -9,19 +9,13 @@ export default function build (entry, bundle, options) {
     fallback: path.resolve(path.join(__dirname, '../../node_modules'))
   }
 
-  const entries = {
-    all: [
+  const baseBundleConfig = {
+    options,
+    entry: [
       'babel-polyfill',
       entry
     ],
-    development: [
-      'webpack-dev-server/client?http://localhost:8080/',
-      'webpack/hot/only-dev-server'
-    ]
-  }
-
-  const plugins = {
-    default: [
+    plugins: [
       new webpack.DefinePlugin({
         'process.env': {
           'NODE_ENV': JSON.stringify('production')
@@ -33,57 +27,51 @@ export default function build (entry, bundle, options) {
         }
       })
     ],
-    development: [
-      new webpack.DefinePlugin({
-        'process.env': {
-          'NODE_ENV': JSON.stringify('development')
-        }
-      }),
-      new webpack.HotModuleReplacementPlugin()
-    ]
-  }
-
-  const loaders = {
-    all: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'babel',
-        query: babelConfig()
-      }
-    ],
-    development: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'react-hot'
-      }
-    ]
-  }
-
-  const bundleConfig = configPassthrough('webpack', {
-    entry: options.dev ? entries.development.concat(entries.all) : entries.all,
-    plugins: options.dev ? plugins.development : plugins.default,
     devtool: 'source-map',
     output: {
       path: path.dirname(path.resolve(bundle)),
       filename: path.basename(bundle)
     },
     module: {
-      loaders: options.dev ? loaders.development.concat(loaders.all) : loaders.all
+      loaders: [
+        {
+          test: /\.js$/,
+          exclude: /node_modules/,
+          loader: 'babel',
+          query: babelConfig()
+        }
+      ]
     },
     resolve: resolvers,
     resolveLoader: resolvers
-  })
+  }
 
+  if (options.dev) {
+    baseBundleConfig.serverPort = 8080
+
+    baseBundleConfig.entry.unshift(
+      'webpack-dev-server/client?http://localhost:8080/'
+    )
+
+    baseBundleConfig.plugins.push(
+      new webpack.DefinePlugin({
+        'process.env': {
+          'NODE_ENV': JSON.stringify('development')
+        }
+      }),
+      new webpack.HotModuleReplacementPlugin()
+    )
+  }
+
+  const bundleConfig = configPassthrough('webpack', baseBundleConfig)
   const compiler = webpack(bundleConfig)
 
   if (options.dev) {
     const server = new WebpackDevServer(compiler, {
-      contentBase: options.base || './',
-      hot: true
+      contentBase: options.base || path.dirname(bundle)
     })
-    server.listen(8080)
+
+    server.listen(bundleConfig.serverPort)
   } else {
     compiler.run((err, stats) => {
       if (err) {

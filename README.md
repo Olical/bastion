@@ -128,4 +128,3 @@ Do what you want. Learn as much as you can. Unlicense more software.
 [author-site]: http://oli.me.uk/
 [author-twitter]: https://twitter.com/OliverCaldwell
 [overwatch]: https://playoverwatch.com/
-[react-hot-loader]: https://github.com/gaearon/react-hot-loader
