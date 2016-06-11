@@ -11,7 +11,7 @@ export default function configPassthrough (name, config) {
     log.verbose('found config file')
 
     const source = babel.transformFileSync(configFile, babelConfig(true)).code
-    const fns = _eval(source, true)
+    const fns = _eval(source, configFile, {}, true)
 
     if (typeof fns[name] === 'function') {
       log.verbose('found config function for %s', name)

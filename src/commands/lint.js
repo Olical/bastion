@@ -26,7 +26,7 @@ export default async function lint (source, options) {
       process.exit(1)
     }
   } catch (e) {
-    log.error(e)
+    log.error(e.stack)
     process.exit(1)
   }
 }
