@@ -7,6 +7,7 @@ Bastion combines the following technologies into one easy to use package:
  * [babel][]
  * [webpack][]
  * [standard][]
+ * [flow][]
  * [ava][]
 
 ![bastion](https://raw.githubusercontent.com/Olical/bastion/master/bastion.jpg)
@@ -130,6 +131,7 @@ Do what you want. Learn as much as you can. Unlicense more software.
 [justdoit]: https://www.youtube.com/watch?v=ZXsQAXx_ao0
 [webpack]: https://webpack.github.io/
 [standard]: http://standardjs.com/index.html
+[flow]: https://flowtype.org/
 [babel]: https://babeljs.io/
 [ava]: https://github.com/avajs/ava
 [unlicense]: http://unlicense.org/
