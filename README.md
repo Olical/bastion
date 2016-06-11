@@ -97,13 +97,21 @@ bastion lint "src/**/*.js" "test/OtherFile-*.js"
 
 ## Gotchas
 
-### Module not found: Error: Cannot resolve module 'app.js' in /home/ollie/repos/olical/bastion
+### `Module not found: Error: Cannot resolve module 'app.js' in /home/ollie/repos/olical/bastion`
 
 The source module for bundling must be a valid *module*. So if you type `app.js` node will look in places like `node_modules`, this is probably not desired. Instead, just use a relative path such as `./app.js`.
 
 ### Hot module reloading isn't working with `bundle --dev`
 
 If you aren't seeing any logs related to HMR then you need to set `--base` to the root of your bundled source. For example: `--dev --base ./dist`, where `dist` contains your `bundle.js` and `index.html` to load it. This is just something webpack requires I'm afraid, and I can not assume where you're going to output your code.
+
+### `__dirname` is undefined in config
+
+This is because not all globals are defined for the config file. You can still use `process.cwd()`.
+
+### Regular expressions don't work in webpack config
+
+This is because the regex you define in your config file is not an instance of the regexes used in the webpack source since the config file is interpreted in a sandbox. If you use strings it should work fine. Basically the `instanceof` check will fail since the `RegExp` object in your config file is not the same as the `RegExp` object in the webpack source code.
 
 ## Author
 
