@@ -3,8 +3,12 @@ import webpack from 'webpack'
 import WebpackDevServer from 'webpack-dev-server'
 import configPassthrough from '../configPassthrough'
 import babelConfig from '../babelConfig'
+import log from '../log'
 
 export default function build (entry, bundle, options) {
+  log.verbose('entry: %s', entry)
+  log.verbose('bundle: %s', bundle)
+
   const resolvers = {
     fallback: path.resolve(path.join(__dirname, '../../node_modules'))
   }
@@ -46,6 +50,8 @@ export default function build (entry, bundle, options) {
   }
 
   if (options.dev) {
+    log.debug('applying dev config mutations')
+
     baseBundleConfig.serverPort = 8080
 
     baseBundleConfig.entry.unshift(
@@ -74,10 +80,10 @@ export default function build (entry, bundle, options) {
   } else {
     compiler.run((err, stats) => {
       if (err) {
-        console.error(err)
+        log.error(err)
         process.exit(1)
       } else {
-        console.info(stats.toString({
+        log.info(stats.toString({
           colors: true,
           errorDetails: true
         }))
