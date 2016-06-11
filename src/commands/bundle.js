@@ -9,10 +9,6 @@ export default function build (entry, bundle, options) {
   log.verbose('entry: %s', entry)
   log.verbose('bundle: %s', bundle)
 
-  const resolvers = {
-    fallback: path.resolve(path.join(__dirname, '../../node_modules'))
-  }
-
   const baseBundleConfig = {
     options,
     entry: [
@@ -44,9 +40,7 @@ export default function build (entry, bundle, options) {
           query: babelConfig()
         }
       ]
-    },
-    resolve: resolvers,
-    resolveLoader: resolvers
+    }
   }
 
   if (options.dev) {
