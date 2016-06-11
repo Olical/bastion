@@ -12,7 +12,6 @@ export default function build (entry, bundle, options) {
   const baseBundleConfig = {
     options,
     entry: [
-      'babel-polyfill',
       entry
     ],
     plugins: [
