@@ -11,13 +11,7 @@ program
   ].join('\n\t\t\t\t\t'))
   .option('-d, --dev', 'start the dev server')
   .option('-b, --base <dir>', 'directory to host the dev server from')
-  .action((entryFile, bundleFile, options) => {
-    return bundle(
-      entryFile || './src/index.js',
-      bundleFile || './dist/bundle.js',
-      options
-    )
-  })
+  .action(bundle)
 
 program
   .command('lint [sources...]')

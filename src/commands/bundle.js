@@ -5,7 +5,10 @@ import configPassthrough from '../configPassthrough'
 import babelConfig from '../babelConfig'
 import log from '../log'
 
-export default function build (entry, bundle, options) {
+const defaultEntry = './src/index.js'
+const defaultBundle = './dist/bundle.js'
+
+export default function build (entry = defaultEntry, bundle = defaultBundle, options) {
   log.verbose('entry: %s', entry)
   log.verbose('bundle: %s', bundle)
 
