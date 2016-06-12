@@ -1,5 +1,7 @@
 # bastion [![npm version](https://badge.fury.io/js/bastion.svg)](https://badge.fury.io/js/bastion) [![Build Status](https://travis-ci.org/Olical/bastion.svg?branch=master)](https://travis-ci.org/Olical/bastion) [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
 
+> Currently a work in progress, I'm going to overhaul the readme and write a post about this project once I'm done with the core features and happy with the tool.
+
 Combines a modern JavaScript toolchain into a single program so you can stop worrying about configuration and just get to work on your application. This means you can get back to playing [Overwatch][] as soon as possible!
 
 Bastion combines the following technologies into one easy to use package:
