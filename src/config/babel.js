@@ -1,8 +1,8 @@
 import path from 'path'
 import {map} from 'lodash'
-import configPassthrough from './configPassthrough'
+import configPassthrough from './passthrough'
 
-const localModules = path.resolve(path.join(__dirname, '../node_modules'))
+const localModules = path.resolve(path.join(__dirname, '../../node_modules'))
 
 function prefixModule (prefix) {
   return (name) => {

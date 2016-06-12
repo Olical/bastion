@@ -1,9 +1,10 @@
 import path from 'path'
 import webpack from 'webpack'
 import WebpackDevServer from 'webpack-dev-server'
-import configPassthrough from '../configPassthrough'
-import babelConfig from '../babelConfig'
-import log from '../log'
+import configPassthrough from './config/passthrough'
+import babelConfig from './config/babel'
+import standardConfig from './config/standard'
+import log from './log'
 
 const defaultEntry = './src/index.js'
 const defaultBundle = './dist/bundle.js'
@@ -13,7 +14,7 @@ export default async function bundle (entry = defaultEntry, bundle = defaultBund
   log.verbose('bundle: %s', bundle)
 
   const resolvers = {
-    fallback: path.resolve(path.join(__dirname, '../../node_modules'))
+    fallback: path.resolve(path.join(__dirname, '../node_modules'))
   }
 
   const baseBundleConfig = {
@@ -26,6 +27,13 @@ export default async function bundle (entry = defaultEntry, bundle = defaultBund
       filename: path.basename(bundle)
     },
     module: {
+      preLoaders: [
+        {
+          test: /\.js$/,
+          exclude: /node_modules/,
+          loader: 'standard'
+        }
+      ],
       loaders: [
         {
           test: /\.js$/,
@@ -36,12 +44,12 @@ export default async function bundle (entry = defaultEntry, bundle = defaultBund
       ]
     },
     resolve: resolvers,
-    resolveLoader: resolvers
+    resolveLoader: resolvers,
+    standard: await standardConfig()
   }
 
   if (options.dev) {
     log.debug('applying dev config mutations')
-
 
     baseBundleConfig.entry.unshift(
       `webpack-dev-server/client?http://localhost:${options.port}/`,

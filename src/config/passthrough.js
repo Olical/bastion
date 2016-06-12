@@ -1,9 +1,9 @@
 import vm from 'vm'
 import path from 'path'
 import fs from 'fs'
-import babelConfig from './babelConfig'
+import babelConfig from './babel'
 import webpack from 'webpack'
-import log from './log'
+import log from '../log'
 import MemoryFS from 'memory-fs'
 
 const configFnsPromise = readConfigFns('bastion.conf.js')
@@ -64,7 +64,7 @@ async function compile (configFile) {
 
 async function getCompiler (source) {
   const resolvers = {
-    fallback: path.resolve(path.join(__dirname, '../node_modules'))
+    fallback: path.resolve(path.join(__dirname, '../../node_modules'))
   }
 
   return webpack({

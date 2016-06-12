@@ -41,8 +41,6 @@ npm install --save-dev bastion
 
 Everything should work out of the box, that's the idea. If you do find yourself needing to tweak configuration however you can create a `bastion.conf.js` file in the directory that you're going to be executing bastion from.
 
-> Note: This may walk up the directory tree in the future to find configuration in parent directories.
-
 To configure individual components (the ones listed at the top of this repository) simply export a function from this file (using any ES6+ code you want, it's parsed with bastion's babel!) with the same name. It will be given the config, you can return your modified version.
 
 ```javascript
@@ -61,46 +59,21 @@ export function babel (config) {
   console.log('babel config', config)
   return config
 }
-
-export function ava (config) {
-  console.log('ava config', config)
-  return config
-}
 ```
 
-## Examples
-
-### Bundle
+## Usage
 
 ```bash
-# Defaults the input and output to the ones used in the following command
-bastion bundle
+# Bundles ./src/index.js to ./dist/bundle.js by default
+# Lints and checks code as part of this
+bastion
 
-# or...
-# The ./ for your source file is important.
-# It follows normal node modules rules.
-bastion bundle ./src/index.js ./dist/bundle.js
-```
+# There's a bunch of options, just use bastion -h for more
+# The defaults essentially call this though
+bastion ./src/index.js ./dist/bundle.js --port 8080 --dev --base ./dist
 
-### Bundle, serve and watch with HMR
-
-```bash
-# Defaults the inputs to the ones used in the following command
-bastion bundle --dev
-
-# or...
-bastion bundle --dev --base ./dist ./src/index.js ./dist/bundle.js
-open http://localhost:8080/
-```
-
-### Lint
-
-```bash
-bastion lint
-
-# or...
-bastion lint src/SomeFile.js
-bastion lint "src/**/*.js" "test/OtherFile-*.js"
+# --dev enables the dev server with hot reloading
+# It will continue to lint / check your files as you change them too
 ```
 
 ## Gotchas
