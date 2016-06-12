@@ -12,7 +12,11 @@ export default async function lint (source, options) {
   log.verbose('source: %j', source)
 
   try {
-    const lintResults = flatMap((await runStandard(source)).results, (file) => {
+    const lintConfig = configPassthrough('standard', {
+      parser: 'babel-eslint'
+    }, options)
+
+    const lintResults = flatMap((await runStandard(source, lintConfig)).results, (file) => {
       return map(file.messages, (error) => {
         const path = file.filePath
         const {line, column, message} = error
@@ -31,11 +35,7 @@ export default async function lint (source, options) {
   }
 }
 
-function runStandard (source) {
-  const lintConfig = configPassthrough('standard', {
-    parser: 'babel-eslint'
-  })
-
+function runStandard (source, lintConfig) {
   return new Promise((resolve, reject) => {
     standard.lintFiles(source, lintConfig, (err, response) => {
       if (err) {

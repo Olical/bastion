@@ -17,7 +17,6 @@ export default function build (entry = defaultEntry, bundle = defaultBundle, opt
   }
 
   const baseBundleConfig = {
-    options,
     entry: [
       entry
     ],
@@ -72,7 +71,7 @@ export default function build (entry = defaultEntry, bundle = defaultBundle, opt
     ]
   }
 
-  const bundleConfig = configPassthrough('webpack', baseBundleConfig)
+  const bundleConfig = configPassthrough('webpack', baseBundleConfig, options)
   const compiler = webpack(bundleConfig)
 
   if (options.dev) {
@@ -87,7 +86,7 @@ export default function build (entry = defaultEntry, bundle = defaultBundle, opt
         log.error(err)
         process.exit(1)
       } else {
-        log.info(stats.toString({
+        log.verbose(stats.toString({
           colors: true,
           errorDetails: true
         }))

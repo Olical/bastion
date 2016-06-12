@@ -8,12 +8,12 @@ import MemoryFS from 'memory-fs'
 
 const configFns = readConfigFns('bastion.conf.js')
 
-export default function configPassthrough (name, config) {
+export default function configPassthrough (name, config, options) {
   if (typeof configFns[name] === 'function') {
     log.verbose('found config function for %s', name)
-    return configFns[name](config)
+    return configFns[name](config, options)
   } else {
-    log.verbose('no config function four %s', name)
+    log.verbose('no config function for %s', name)
   }
 
   return config
