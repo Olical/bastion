@@ -7,6 +7,7 @@ program
   .command('bundle [entry] [bundle]')
   .description('bundles the given entry file (and the dependencies) into the bundle file')
   .option('-d, --dev', 'start the dev server')
+  .option('-p, --port <port>', 'dev server port [8080]', parseFloat, 8080)
   .option('-b, --base <dir>', 'directory to host the dev server from')
   .action(bundle)
 

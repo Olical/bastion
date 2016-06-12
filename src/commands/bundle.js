@@ -42,10 +42,10 @@ export default async function bundle (entry = defaultEntry, bundle = defaultBund
   if (options.dev) {
     log.debug('applying dev config mutations')
 
-    baseBundleConfig.serverPort = 8080
 
     baseBundleConfig.entry.unshift(
-      'webpack-dev-server/client?http://localhost:8080/'
+      `webpack-dev-server/client?http://localhost:${options.port}/`,
+      'webpack/hot/only-dev-server'
     )
 
     baseBundleConfig.plugins = [
@@ -80,7 +80,7 @@ export default async function bundle (entry = defaultEntry, bundle = defaultBund
       hot: true
     })
 
-    server.listen(bundleConfig.serverPort)
+    server.listen(options.port)
   } else {
     compiler.run((err, stats) => {
       if (err) {
