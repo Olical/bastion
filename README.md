@@ -27,11 +27,9 @@ I got bored of all the things you have to set up to make JavaScript bearable so 
  * [x] Hot module reloading
  * [x] Opinionated linting
  * [x] Configurable
- * [ ] Testing
- * [ ] Build node scripts with babel
- * [ ] Run node scripts with babel
- * [ ] Test coverage
  * [ ] Gradual typing
+ * [ ] Testing
+ * [ ] Test coverage
  * [ ] Performance benchmarks
 
 ## Installation
