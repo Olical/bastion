@@ -46,8 +46,9 @@ Everything should work out of the box, that's the idea. If you do find yourself 
 To configure individual components (the ones listed at the top of this repository) simply export a function from this file (using any ES6+ code you want, it's parsed with bastion's babel!) with the same name. It will be given the config, you can return your modified version.
 
 ```javascript
-export function webpack (config) {
+export function webpack (config, options) {
   console.log('webpack config', config)
+  console.log('is webpack dev mode?', options.dev)
   return config
 }
 
@@ -72,6 +73,10 @@ export function ava (config) {
 ### Bundle
 
 ```bash
+# Defaults the input and output to the ones used in the following command
+bastion bundle
+
+# or...
 # The ./ for your source file is important.
 # It follows normal node modules rules.
 bastion bundle ./src/index.js ./dist/bundle.js
@@ -80,6 +85,10 @@ bastion bundle ./src/index.js ./dist/bundle.js
 ### Bundle, serve and watch with HMR
 
 ```bash
+# Defaults the inputs to the ones used in the following command
+bastion bundle --dev
+
+# or...
 bastion bundle --dev --base ./dist ./src/index.js ./dist/bundle.js
 open http://localhost:8080/
 ```
@@ -88,6 +97,8 @@ open http://localhost:8080/
 
 ```bash
 bastion lint
+
+# or...
 bastion lint src/SomeFile.js
 bastion lint "src/**/*.js" "test/OtherFile-*.js"
 ```
@@ -97,18 +108,6 @@ bastion lint "src/**/*.js" "test/OtherFile-*.js"
 ### `Module not found: Error: Cannot resolve module 'app.js' in /home/ollie/repos/olical/bastion`
 
 The source module for bundling must be a valid *module*. So if you type `app.js` node will look in places like `node_modules`, this is probably not desired. Instead, just use a relative path such as `./app.js`.
-
-### Hot module reloading isn't working with `bundle --dev`
-
-If you aren't seeing any logs related to HMR then you need to set `--base` to the root of your bundled source. For example: `--dev --base ./dist`, where `dist` contains your `bundle.js` and `index.html` to load it. This is just something webpack requires I'm afraid, and I can not assume where you're going to output your code.
-
-### `__dirname` is undefined in config
-
-This is because not all globals are defined for the config file. You can still use `process.cwd()`.
-
-### Regular expressions don't work in webpack config
-
-This is because the regex you define in your config file is not an instance of the regexes used in the webpack source since the config file is interpreted in a sandbox. If you use strings it should work fine. Basically the `instanceof` check will fail since the `RegExp` object in your config file is not the same as the `RegExp` object in the webpack source code.
 
 ## Author
 
