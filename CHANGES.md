@@ -1,5 +1,18 @@
 # bastion changes
 
+## v1.5.0
+
+ * `bastion.conf.js` is full babel / webpacked
+ * Remove react stuff, easy to add in config
+ * Readme things
+ * Usability things (like logs and defaults)
+ * Code cleanup
+ * More async stuff because config compiling now requires async code
+ * Only compile / execute config once
+ * Use `vm` over `eval` (the npm module)
+ * Generally made the current standard, webpack, babel combo awesome
+ * Started an example repository at https://github.com/Olical/bastion-example
+
 ## v1.4.0
 
  * Readme improvements.
