@@ -31,7 +31,7 @@ export default async function bundle (entry = defaultEntry, bundle = defaultBund
           test: /\.js$/,
           exclude: /node_modules/,
           loader: 'babel',
-          query: babelConfig()
+          query: await babelConfig()
         }
       ]
     },

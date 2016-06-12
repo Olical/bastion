@@ -38,8 +38,8 @@ function readConfigFns (configFile) {
   })
 }
 
-function compile (configFile) {
-  const compiler = getCompiler(configFile)
+async function compile (configFile) {
+  const compiler = await getCompiler(configFile)
   const mfs = new MemoryFS()
   compiler.outputFileSystem = mfs
 
@@ -62,7 +62,7 @@ function compile (configFile) {
   })
 }
 
-function getCompiler (source) {
+async function getCompiler (source) {
   const resolvers = {
     fallback: path.resolve(path.join(__dirname, '../node_modules'))
   }
@@ -81,7 +81,7 @@ function getCompiler (source) {
           test: /\.js$/,
           exclude: /node_modules/,
           loader: 'babel',
-          query: babelConfig(true)
+          query: await babelConfig(true)
         }
       ]
     },

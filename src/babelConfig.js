@@ -10,7 +10,7 @@ function prefixModule (prefix) {
   }
 }
 
-export default function babelConfig (skipConfigPassthrough) {
+export default async function babelConfig (skipConfigPassthrough) {
   const config = {
     plugins: map([
       'transform-runtime'
@@ -25,6 +25,6 @@ export default function babelConfig (skipConfigPassthrough) {
   if (skipConfigPassthrough) {
     return config
   } else {
-    return configPassthrough('babel', config)
+    return await configPassthrough('babel', config)
   }
 }
