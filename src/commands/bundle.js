@@ -8,7 +8,7 @@ import log from '../log'
 const defaultEntry = './src/index.js'
 const defaultBundle = './dist/bundle.js'
 
-export default async function build (entry = defaultEntry, bundle = defaultBundle, options) {
+export default async function bundle (entry = defaultEntry, bundle = defaultBundle, options) {
   log.verbose('entry: %s', entry)
   log.verbose('bundle: %s', bundle)
 
