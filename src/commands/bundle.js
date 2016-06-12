@@ -86,7 +86,7 @@ export default async function bundle (entry = defaultEntry, bundle = defaultBund
         log.error(err)
         process.exit(1)
       } else {
-        log.verbose(stats.toString({
+        log.info(stats.toString({
           colors: true,
           errorDetails: true
         }))
