@@ -21,18 +21,6 @@ export default function build (entry = defaultEntry, bundle = defaultBundle, opt
     entry: [
       entry
     ],
-    plugins: [
-      new webpack.DefinePlugin({
-        'process.env': {
-          'NODE_ENV': JSON.stringify('production')
-        }
-      }),
-      new webpack.optimize.UglifyJsPlugin({
-        compress: {
-          warnings: false
-        }
-      })
-    ],
     devtool: 'source-map',
     output: {
       path: path.dirname(path.resolve(bundle)),
@@ -61,14 +49,27 @@ export default function build (entry = defaultEntry, bundle = defaultBundle, opt
       'webpack-dev-server/client?http://localhost:8080/'
     )
 
-    baseBundleConfig.plugins.push(
+    baseBundleConfig.plugins = [
       new webpack.DefinePlugin({
         'process.env': {
           'NODE_ENV': JSON.stringify('development')
         }
       }),
       new webpack.HotModuleReplacementPlugin()
-    )
+    ]
+  } else {
+    baseBundleConfig.plugins = [
+      new webpack.DefinePlugin({
+        'process.env': {
+          'NODE_ENV': JSON.stringify('production')
+        }
+      }),
+      new webpack.optimize.UglifyJsPlugin({
+        compress: {
+          warnings: false
+        }
+      })
+    ]
   }
 
   const bundleConfig = configPassthrough('webpack', baseBundleConfig)
