@@ -12,7 +12,7 @@ export default async function lint (source, options) {
   log.verbose('source: %j', source)
 
   try {
-    const lintConfig = configPassthrough('standard', {
+    const lintConfig = await configPassthrough('standard', {
       parser: 'babel-eslint'
     }, options)
 
