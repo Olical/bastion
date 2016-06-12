@@ -30,7 +30,6 @@
   "license": "Unlicense",
   "dependencies": {
     "babel-cli": "^6.9.0",
-    "babel-core": "^6.9.1",
     "babel-eslint": "^6.0.4",
     "babel-loader": "^6.2.4",
     "babel-plugin-transform-runtime": "^6.9.0",
