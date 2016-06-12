@@ -2,16 +2,15 @@
 
 > Currently a work in progress, I'm going to overhaul the readme and write a post about this project once I'm done with the core features and happy with the tool.
 
-Combines a modern JavaScript toolchain into a single program so you can stop worrying about configuration and just get to work on your application. This means you can get back to playing [Overwatch][] as soon as possible!
+Combines a modern JavaScript toolchain into a single command so you can stop worrying about configuration and just get to work on your application. This means you can get back to playing [Overwatch][] as soon as possible!
 
 Bastion combines the following technologies into one easy to use package:
 
  * [babel][]
  * [webpack][]
  * [standard][]
- * [ava][]
 
-![bastion](https://raw.githubusercontent.com/Olical/bastion/master/bastion.jpg)
+![bastion][bastion-img]
 
 ## Rationale
 
@@ -35,6 +34,11 @@ You can install `bastion` globally with `npm install -g bastion` or as a dev dep
 ```bash
 npm install --save-dev bastion
 ./node_modules/.bin/bastion --help
+
+# or
+
+npm install -g bastion
+bastion --help
 ```
 
 ## Configuration
@@ -76,12 +80,6 @@ bastion ./src/index.js ./dist/bundle.js --port 8080 --dev --base ./dist
 # It will continue to lint / check your files as you change them too
 ```
 
-## Gotchas
-
-### `Module not found: Error: Cannot resolve module 'app.js' in /home/ollie/repos/olical/bastion`
-
-The source module for bundling must be a valid *module*. So if you type `app.js` node will look in places like `node_modules`, this is probably not desired. Instead, just use a relative path such as `./app.js`.
-
 ## Author
 
 [Oliver Caldwell][author-site] ([@OliverCaldwell][author-twitter])
@@ -96,12 +94,11 @@ Find the full [unlicense][] in the `UNLICENSE` file, but here's a snippet.
 
 Do what you want. Learn as much as you can. Unlicense more software.
 
-[justdoit]: https://www.youtube.com/watch?v=ZXsQAXx_ao0
 [webpack]: https://webpack.github.io/
 [standard]: http://standardjs.com/index.html
 [babel]: https://babeljs.io/
-[ava]: https://github.com/avajs/ava
 [unlicense]: http://unlicense.org/
 [author-site]: http://oli.me.uk/
 [author-twitter]: https://twitter.com/OliverCaldwell
 [overwatch]: https://playoverwatch.com/
+[bastion-img]: https://raw.githubusercontent.com/Olical/bastion/master/bastion.jpg
