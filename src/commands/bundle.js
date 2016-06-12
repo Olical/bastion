@@ -76,7 +76,8 @@ export default async function bundle (entry = defaultEntry, bundle = defaultBund
 
   if (options.dev) {
     const server = new WebpackDevServer(compiler, {
-      contentBase: options.base || path.dirname(bundle)
+      contentBase: options.base || path.dirname(bundle),
+      hot: true
     })
 
     server.listen(bundleConfig.serverPort)
