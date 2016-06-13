@@ -80,7 +80,9 @@ export default async function bundle (options) {
         compress: {
           warnings: false
         }
-      })
+      }),
+      new webpack.optimize.OccurrenceOrderPlugin(),
+      new webpack.optimize.DedupePlugin()
     ]
   }
 
