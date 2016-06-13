@@ -20,7 +20,6 @@ export default async function bundle (options) {
     entry: [
       options.entry
     ],
-    devtool: 'source-map',
     output: {
       path: path.dirname(path.resolve(options.bundle)),
       filename: path.basename(options.bundle)
@@ -54,6 +53,8 @@ export default async function bundle (options) {
 
   if (options.dev) {
     log.debug('applying dev config mutations')
+
+    baseBundleConfig.devtool = 'source-map'
 
     baseBundleConfig.entry.unshift(
       `webpack-dev-server/client?http://localhost:${options.port}/`,
