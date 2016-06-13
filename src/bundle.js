@@ -5,13 +5,11 @@ import configPassthrough from './config/passthrough'
 import babelConfig from './config/babel'
 import standardConfig from './config/standard'
 import log from './log'
+import {isString} from 'lodash'
 
-const defaultEntry = './src/index.js'
-const defaultBundle = './dist/bundle.js'
-
-export default async function bundle (entry = defaultEntry, bundle = defaultBundle, options) {
-  log.verbose('entry: %s', entry)
-  log.verbose('bundle: %s', bundle)
+export default async function bundle (options) {
+  log.verbose('entry: %s', options.entry)
+  log.verbose('bundle: %s', options.bundle)
 
   const resolvers = {
     fallback: path.resolve(path.join(__dirname, '../node_modules'))
@@ -19,12 +17,12 @@ export default async function bundle (entry = defaultEntry, bundle = defaultBund
 
   const baseBundleConfig = {
     entry: [
-      entry
+      options.entry
     ],
     devtool: 'source-map',
     output: {
-      path: path.dirname(path.resolve(bundle)),
-      filename: path.basename(bundle)
+      path: path.dirname(path.resolve(options.bundle)),
+      filename: path.basename(options.bundle)
     },
     module: {
       preLoaders: [
@@ -79,12 +77,13 @@ export default async function bundle (entry = defaultEntry, bundle = defaultBund
     ]
   }
 
+  const base = isString(options.dev) ? options.dev : path.dirname(options.bundle)
   const bundleConfig = await configPassthrough('webpack', baseBundleConfig, options)
   const compiler = webpack(bundleConfig)
 
   if (options.dev) {
     const server = new WebpackDevServer(compiler, {
-      contentBase: options.base || path.dirname(bundle),
+      contentBase: base,
       hot: true,
       stats: {
         colors: true,

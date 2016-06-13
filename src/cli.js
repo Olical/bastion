@@ -3,14 +3,14 @@ import pkg from '../package.json'
 import bundle from './bundle'
 
 program
-  .usage('[entry] [bundle]')
   .description('check and build your source (from the entry module) into a single bundled file')
-  .option('-d, --dev', 'start the dev server')
+  .option('-e, --entry <module>', 'root file to bundle [./src/entry]', './src/entry')
+  .option('-b, --bundle <path>', 'path to write the bundle file to [./dist/bundle.js]', './dist/bundle.js')
+  .option('-d, --dev [base]', 'start the dev server with an optional base directory [bundle directory]')
   .option('-p, --port <port>', 'dev server port [8080]', parseFloat, 8080)
-  .option('-b, --base <dir>', 'directory to host the dev server from')
 
 program
   .version(pkg.version)
   .parse(process.argv)
 
-bundle(program.entry, program.bundle, program)
+bundle(program)
