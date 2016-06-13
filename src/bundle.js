@@ -5,7 +5,10 @@ import configPassthrough from './config/passthrough'
 import babelConfig from './config/babel'
 import standardConfig from './config/standard'
 import log from './log'
-import {isString} from 'lodash'
+import {
+  isString,
+  isEmpty
+} from 'lodash'
 
 export default async function bundle (options) {
   log.verbose('entry: %s', options.entry)
@@ -105,6 +108,10 @@ export default async function bundle (options) {
           colors: true,
           errorDetails: true
         }))
+
+        if (!isEmpty(stats.compilation.warnings)) {
+          process.exit(1)
+        }
       }
     })
   }
