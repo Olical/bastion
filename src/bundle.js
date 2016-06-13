@@ -11,9 +11,7 @@ export default async function bundle (options) {
   log.verbose('entry: %s', options.entry)
   log.verbose('bundle: %s', options.bundle)
 
-  const resolvers = {
-    fallback: path.resolve(path.join(__dirname, '../node_modules'))
-  }
+  const bastionModules = path.resolve(path.join(__dirname, '../node_modules'))
 
   const baseBundleConfig = {
     entry: [
@@ -41,8 +39,13 @@ export default async function bundle (options) {
         }
       ]
     },
-    resolve: resolvers,
-    resolveLoader: resolvers,
+    resolve: {
+      fallback: bastionModules,
+      extensions: ['', '.js']
+    },
+    resolveLoader: {
+      fallback: bastionModules
+    },
     standard: await standardConfig()
   }
 
