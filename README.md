@@ -1,8 +1,6 @@
 # bastion [![npm version](https://badge.fury.io/js/bastion.svg)](https://badge.fury.io/js/bastion) [![Build Status](https://travis-ci.org/Olical/bastion.svg?branch=master)](https://travis-ci.org/Olical/bastion) [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
 
-> Currently a work in progress, I'm going to overhaul the readme and write a post about this project once I'm done with the core features and happy with the tool.
-
-Combines a modern JavaScript toolchain into a single command so you can stop worrying about configuration and just get to work on your application. This means you can get back to playing [Overwatch][] as soon as possible!
+Combines a modern JavaScript toolchain into a single command so you can stop worrying about configuration and just get to work on your application. This means you can resume playing [Overwatch][] as soon as possible!
 
 Bastion combines the following technologies into one easy to use package:
 
@@ -29,7 +27,7 @@ I got bored of all the things you have to set up to make JavaScript bearable so 
 
 ## Installation
 
-You can install `bastion` globally with `npm install -g bastion` or as a dev dependency local to your project. If you do the latter (which I recommend!) you can then set up a `Makefile` or build script that uses the local executable.
+You can install `bastion` globally or as a dev dependency local to your project. If you do the latter (which I recommend!) you can then set up a `Makefile` or build script that executes the local script.
 
 ```bash
 npm install --save-dev bastion
@@ -68,13 +66,13 @@ export function babel (config) {
 ## Usage
 
 ```bash
-# Bundles ./src/index.js to ./dist/bundle.js by default
+# Bundles ./src/entry to ./dist/bundle.js by default
 # Lints and checks code as part of this
 bastion
 
 # There's a bunch of options, just use bastion -h for more
 # The defaults essentially call this though
-bastion ./src/index.js ./dist/bundle.js --port 8080 --dev --base ./dist
+bastion ./src/entry ./dist/bundle.js --port 8080 --dev --base ./dist
 
 # --dev enables the dev server with hot reloading
 # It will continue to lint / check your files as you change them too
