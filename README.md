@@ -25,6 +25,23 @@ I got bored of all the things you have to set up to make JavaScript bearable so 
  * [x] Configurable
  * [ ] Testing
 
+## Usage
+
+I've created [bastion-example][] as a small project that showcases what bastion can do. I use it as a sort of test so it will stay up to date and use all features. The command is pretty easy to use though, as you can see below.
+
+```bash
+# Bundles ./src/entry to ./dist/bundle.js by default
+# Lints and checks code as part of this
+bastion
+
+# There's a bunch of options, just use bastion -h for more
+# The defaults essentially call this though
+bastion ./src/entry ./dist/bundle.js --port 8080 --dev --base ./dist
+
+# --dev enables the dev server with hot reloading
+# It will continue to lint / check your files as you change them too
+```
+
 ## Installation
 
 You can install `bastion` globally or as a dev dependency local to your project. If you do the latter (which I recommend!) you can then set up a `Makefile` or build script that executes the local script.
@@ -63,21 +80,6 @@ export function babel (config) {
 }
 ```
 
-## Usage
-
-```bash
-# Bundles ./src/entry to ./dist/bundle.js by default
-# Lints and checks code as part of this
-bastion
-
-# There's a bunch of options, just use bastion -h for more
-# The defaults essentially call this though
-bastion ./src/entry ./dist/bundle.js --port 8080 --dev --base ./dist
-
-# --dev enables the dev server with hot reloading
-# It will continue to lint / check your files as you change them too
-```
-
 ## Author
 
 [Oliver Caldwell][author-site] ([@OliverCaldwell][author-twitter])
@@ -100,3 +102,4 @@ Do what you want. Learn as much as you can. Unlicense more software.
 [author-twitter]: https://twitter.com/OliverCaldwell
 [overwatch]: https://playoverwatch.com/
 [bastion-img]: https://raw.githubusercontent.com/Olical/bastion/master/bastion.jpg
+[bastion-example]: https://github.com/Olical/bastion-example
