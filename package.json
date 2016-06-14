@@ -49,6 +49,12 @@
     "babel-cli": "^6.9.0",
     "babel-register": "^6.9.0"
   },
+  "peerDependencies": {
+    "elm-hot-loader": "*",
+    "elm-webpack-loader": "*",
+    "react": "*",
+    "react-hot-loader": "*"
+  },
   "standard": {
     "parser": "babel-eslint"
   }

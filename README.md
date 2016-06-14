@@ -66,17 +66,14 @@ To configure individual components (the ones listed at the top of this repositor
 export function webpack (config, options) {
   console.log('webpack config', config)
   console.log('is webpack dev mode?', options.dev)
-  return config
 }
 
 export function standard (config) {
   console.log('standard config', config)
-  return config
 }
 
 export function babel (config) {
   console.log('babel config', config)
-  return config
 }
 ```
 

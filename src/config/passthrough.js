@@ -1,10 +1,11 @@
 import vm from 'vm'
 import path from 'path'
 import fs from 'fs'
-import babelConfig from './babel'
-import webpack from 'webpack'
-import log from '../log'
 import MemoryFS from 'memory-fs'
+import webpack from 'webpack'
+import babelConfig from './babel'
+import log from '../log'
+import mixins from './mixins'
 
 const configFnsPromise = readConfigFns('bastion.conf.js')
 
@@ -13,7 +14,8 @@ export default async function configPassthrough (name, config, options) {
 
   if (typeof configFns[name] === 'function') {
     log.verbose('found config function for %s', name)
-    return configFns[name](config, options)
+    const scope = mixins(config, options)[name]
+    configFns[name].call(scope, config, options)
   } else {
     log.verbose('no config function for %s', name)
   }
