@@ -15,7 +15,14 @@ export default async function configPassthrough (name, config, options) {
   if (typeof configFns[name] === 'function') {
     log.verbose('found config function for %s', name)
     const scope = mixins(config, options)[name]
-    configFns[name].call(scope, config, options)
+
+    try {
+      configFns[name].call(scope, config, options)
+    } catch (err) {
+      log.error('Error in your bastion configuration for "%s"', name)
+      log.error(err)
+      process.exit(1)
+    }
   } else {
     log.verbose('no config function for %s', name)
   }
