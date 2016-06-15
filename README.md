@@ -127,6 +127,15 @@ The functions mutate the configuration or call mixins for their tool, so far the
 
 Feel free to create the function and log out the arguments, it'll show you just what's going on under the hood, you may even spot some values you'd like to tweak.
 
+```js
+export function babel (config, options) {
+  console.log(config)
+  console.log(options)
+
+  // Now you know how bastion configures babel!
+}
+```
+
 ## Author
 
 [Oliver Caldwell][author-site] ([@OliverCaldwell][author-twitter])
