@@ -4,7 +4,7 @@
 
  * Full readme rewrite.
  * Added mixins.
-  * React HMR
+  * React HMR.
   * Elm seamless compilation on import and HMR.
 
 ## v1.6.0
