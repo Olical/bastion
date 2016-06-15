@@ -7,10 +7,6 @@ npm install -g bastion
 bastion --help
 ```
 
-![bastion][]
-
-> [Bastion][bastion-hero], a defence hero from [Overwatch][].
-
 ## The problem
 
 If you're new to JavaScript or have been building applications with it for years you probably realise how many things need to come together in just the right way to produce a comfortable environment. You spend time configuring your linting, builds, minification and maybe transpilation from ES7 and beyond, all the way down to today's version of the language.
@@ -45,6 +41,10 @@ Bastion tries to follow the ideas of some great tools, namely:
  * [figwheel][]
 
 Anything that gets you up and running quickly then continues to help your productivity over time. That's what I want for JavaScript (or things that compile to it such as [Elm][]).
+
+![bastion][bastion-img]
+
+> [Bastion][bastion-hero], a defence hero from [Overwatch][].
 
 ## Features
 
