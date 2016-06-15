@@ -136,6 +136,13 @@ export function babel (config, options) {
 }
 ```
 
+## Things I may want to add in the future
+
+ * Tests out of the box
+ * [Flow][] type checking
+ * [Closure Compiler][]
+ * More webpack loaders by default (like JSON and CSS)
+
 ## Author
 
 [Oliver Caldwell][author-site] ([@OliverCaldwell][author-twitter])
@@ -169,3 +176,5 @@ Do what you want. Learn as much as you can. Unlicense more software.
 [elm]: http://elm-lang.org/
 [react]: https://facebook.github.io/react/
 [asciinema]: https://asciinema.org/a/48990
+[flow]: https://flowtype.org/
+[closure compiler]: https://developers.google.com/closure/compiler/
