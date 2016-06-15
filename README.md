@@ -25,7 +25,7 @@ cd foo
 lein figwhell
 ```
 
-Then you have a hot reloading environment with tests and all, amazing! We want our tools to *just work* with sane defaults. The very popular [standard][] linter is testament to this.
+Then you have a hot reloading environment with tests and all, amazing! We want our tools to *just work* with sane defaults. The very popular [standard][] linter is a testament to this.
 
 This is where bastion comes in, it assumes everything you need to get a modern build with great linting and a production bundle in one command. It can provide a reloading development server out of the box.
 
@@ -70,7 +70,7 @@ bastion
 // Install it locally...
 npm install --save-dev bastion
 
-// Call it locally.
+// And call it locally.
 ./node_modules/.bin/bastion
 ```
 
@@ -96,7 +96,7 @@ node ./dist/bundle.js
 bastion --dev
 ```
 
-You now have a dev sever rebuilding your code as you change it and reloading your browser. It sets the base to dist and the port to 8080, again, use the arguments to change that.
+You now have a dev sever rebuilding your code as you change it and reloading your browser. It sets the base to `./dist/` and the port to `8080`, again, use the arguments to change that.
 
 ## Configuration
 
