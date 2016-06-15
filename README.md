@@ -108,11 +108,11 @@ export function webpack () {
 }
 ```
 
-Oh, we're done. This is a mixin, there aren't many right now but they're really handy.
+Oh, we're done. This is a mixin, there aren't many right now but they're really handy. Here's what is currently available and what you need to `npm install --save-dev` for them to work.
 
  * webpack
-  * `react` - Hot reloading for [React][] applications.
-  * `elm` - Seamless compilation on import from JavaScript and hot module reloading for the awesome [Elm][] language.
+  * `react` - `react react-hot-loader`
+  * `elm` - `elm-webpack-loader elm-hot-loader`
 
 The configuration functions are passed two arguments.
 
