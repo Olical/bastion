@@ -1,11 +1,16 @@
 # bastion changes
 
+## v1.8.0
+
+ * Fix paths for standard/babel loaders and babel-eslint.
+ * Improve documentation of mixins and their dependencies.
+
 ## v1.7.0
 
  * Full readme rewrite.
  * Added mixins.
-  * React HMR.
-  * Elm seamless compilation on import and HMR.
+ * React HMR.
+ * Elm seamless compilation on import and HMR.
 
 ## v1.6.0
 
