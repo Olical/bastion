@@ -29,14 +29,14 @@ export default async function bundle (options) {
         {
           test: /\.js$/,
           exclude: /node_modules/,
-          loader: 'standard'
+          loader: path.join(bastionModules, 'standard-loader')
         }
       ],
       loaders: [
         {
           test: /\.js$/,
           exclude: /node_modules/,
-          loader: 'babel',
+          loader: path.join(bastionModules, 'babel-loader'),
           query: await babelConfig()
         }
       ]
