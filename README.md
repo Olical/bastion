@@ -1,5 +1,9 @@
 # bastion [![npm version](https://badge.fury.io/js/bastion.svg)](https://badge.fury.io/js/bastion) [![Build Status](https://travis-ci.org/Olical/bastion.svg?branch=master)](https://travis-ci.org/Olical/bastion) [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
 
+# Deprecated
+
+> Although this was a fun little experiment, it doens't work with newer versions of npm and I don't really want to fix it right now. Feel free to play with this or build on it, but expect no gaurentee that it'll work correctly.
+
 [![asciicast](https://asciinema.org/a/48990.png)](https://asciinema.org/a/48990)
 
 ```bash
